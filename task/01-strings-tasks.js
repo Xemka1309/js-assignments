@@ -69,7 +69,7 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(value) {
-    return value.substr(8);
+    return value.substring(8);
 }
 
 
@@ -160,7 +160,7 @@ function unbracketTag(str) {
  *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
  */
 function convertToUpperCase(str) {
-    return str.ToUpperCase();
+    return str.toUpperCase();
 }
 
 /**
@@ -201,7 +201,7 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-    return "┌"+"─".repeat(width-2)+"┐"+"\n"+("│"+" ".repeat(width-2)+"│\n").repeat(height-2)+"└"+"─".repeat(width-2)+"┘\n"; 
+    return "┌"+"─".repeat(width-2)+"┐"+"\n"+("│"+" ".repeat(width-2)+"│\n").repeat(height-2)+"└"+"─".repeat(width-2)+"┘\n";
 }
 
 
