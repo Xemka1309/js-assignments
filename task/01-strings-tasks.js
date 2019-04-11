@@ -39,6 +39,7 @@ function concatenateStrings(value1, value2) {
  */
 function getStringLength(value) {
     return value.length;
+    
 }
 
 /**
@@ -55,7 +56,7 @@ function getStringLength(value) {
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
 function getStringFromTemplate(firstName, lastName) {
-    return `Hello, $(firstName) $(lastName)`;
+    return `Hello, $(firstName) $(lastName)!`;
 }
 
 /**
