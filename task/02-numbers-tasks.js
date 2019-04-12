@@ -267,15 +267,14 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-    try{
-        result=value.toNumber();
-        return result;
-    }
-    catch(err){
+   // try{
+    //    result=value.toNumber();
+    //    return result;
+   // }
+   // catch(err){
         return def;
-
-    }
-}
+    //}
+}   
 
 module.exports = {
     getRectangleArea: getRectangleArea,
