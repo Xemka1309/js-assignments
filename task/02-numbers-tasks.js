@@ -145,7 +145,7 @@ function getLastDigit(value) {
         return value;
     }
     else{
-        while (result > 0){
+        while (result > 10){
             result=Math.trunc(result/10);
         }
         return result;
@@ -166,8 +166,7 @@ function getLastDigit(value) {
  * '-525.5'     => -525.5
  */
 function parseNumberFromString(value) {
-    return Number.parseInt(value);
-}
+    return Number(value);
 
 /**
  * Returns a diagonal length of the rectangular parallelepiped given by its sides a,b,c.
@@ -236,25 +235,26 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 function isPrime(n) {
-    result=true;
-    if (n==1){
+    if(n <= 1)
+    {
         return false;
     }
-        
-    if (n==2){
+    else if(n <= 3)
+    {
         return true;
     }
-    if (n==3){
-        return true;
+    else if(n % 2 == 0 || n % 3 == 0)
+    {
+        return false;
     }
-    if (n>3){
-        for (i=2; n/2; i++){
-            if (n % i == 0){
-                result=false;
-            }
+    for (var i = 5; i*i <= n; i+=6)
+    {
+        if(n % i == 0 || n % (i+2) == 0)
+        {
+            return false;
         }
-    }   
-    return result;
+    }
+    return true;
 }
 
 /**
@@ -273,13 +273,7 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-   // try{
-    //    result=value.toNumber();
-    //    return result;
-   // }
-   // catch(err){
-        return def;
-    //}
+    return Number(value)||def;
 }   
 
 module.exports = {
