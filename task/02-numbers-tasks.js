@@ -56,7 +56,7 @@ function getCicleCircumference(radius) {
 function getAverage(value1, value2) {
     result=value1+value2;
     if (result != 0){
-        return value/2;
+        return result/2;
     }
     else{
         return 0;
@@ -141,10 +141,16 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
  */
 function getLastDigit(value) {
     result=value;
-    while (result > 0){
-        result=Math.trunc(result/10);
+    if (value<10){
+        return value;
     }
-    return result;
+    else{
+        while (result > 0){
+            result=Math.trunc(result/10);
+        }
+        return result;
+    }
+    
 }
 
 
@@ -160,7 +166,7 @@ function getLastDigit(value) {
  * '-525.5'     => -525.5
  */
 function parseNumberFromString(value) {
-    return value.toNumber();
+    return Number.parseInt(value);
 }
 
 /**
@@ -203,9 +209,9 @@ function roundToPowerOfTen(num, pow) {
         return num;
     }
     else{
-        while (num != 0){
-            result=Math.round(result/10*num)*10*num;
-            num--;
+        while (pow != 0){
+            result=Math.round(result/10*pow)*10*pow;
+            pow--;
         }
         return result;
     }
@@ -242,7 +248,7 @@ function isPrime(n) {
         return true;
     }
     if (n>3){
-        for (i=2; i<Math.sqrt(n); i++){
+        for (i=2; n/2; i++){
             if (n % i == 0){
                 result=false;
             }
