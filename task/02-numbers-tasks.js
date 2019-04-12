@@ -54,13 +54,7 @@ function getCicleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-    result=value1+value2;
-    if (result != 0){
-        return result/2;
-    }
-    else{
-        return 0;
-    }
+    return value1/2+value2/2;
 }
 
 /**
@@ -121,10 +115,9 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-   scal_mul=x1*x2+y1*y2;
-   mod1=Math.sqrt(x1*x1+y1*y1);
-   mod2=Math.sqrt(x2*x2+y2*y2);
-   return Math.acos(scal_mul/mod1/mod2);
+    return Math.acos(
+        (x1*x2 + y1*y2)/(Math.sqrt(Math.pow(x1,2)+Math.pow(y1,2))*(Math.pow(x2,2)+Math.pow(y2,2)))
+    );
 }
 
 /**
@@ -140,16 +133,7 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
  *     0     => 0
  */
 function getLastDigit(value) {
-    result=value;
-    if (value<10){
-        return value;
-    }
-    else{
-        while (result > 10){
-            result=Math.trunc(result/10);
-        }
-        return result;
-    }
+    return Number(value.toString() [value.toString().length-1] );
     
 }
 
@@ -204,20 +188,11 @@ function getParallelipidedDiagonal(a,b,c) {
  */
 function roundToPowerOfTen(num, pow) 
 {
-    result=num;
-    if (pow=0)
-    {
-        return num;
+    var remainder = num % Math.pow(10, pow);
+    if(pow != 0) {
+        return Number(remainder.toString()[remainder.toString().length - pow]) <= 5 ? num - remainder : num - remainder + Math.pow(10, pow);
     }
-    else
-    {
-        while (pow != 0)
-        {
-            result=Math.round(result/10*pow)*10*pow;
-            pow--;
-        }
-        return result;
-    }
+    return num;
    
 }
 
