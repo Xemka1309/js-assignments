@@ -392,7 +392,7 @@ function getFalsyValuesCount(arr) {
    return arr.filter(function(value){
       return !value;
    }).length;
-
+}
 /**
  * Returns a number of all occurences of the specified item in an array  
  * 
