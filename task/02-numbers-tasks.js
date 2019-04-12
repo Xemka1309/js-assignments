@@ -271,7 +271,7 @@ function toNumber(value, def) {
         result=value.toNumber();
         return result;
     }
-    catch{
+    catch(err){
         return def;
 
     }
