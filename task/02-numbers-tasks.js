@@ -167,7 +167,7 @@ function getLastDigit(value) {
  */
 function parseNumberFromString(value) {
     return Number(value);
-
+}
 /**
  * Returns a diagonal length of the rectangular parallelepiped given by its sides a,b,c.
  *
@@ -202,13 +202,17 @@ function getParallelipidedDiagonal(a,b,c) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(num, pow) {
+function roundToPowerOfTen(num, pow) 
+{
     result=num;
-    if (pow=0){
+    if (pow=0)
+    {
         return num;
     }
-    else{
-        while (pow != 0){
+    else
+    {
+        while (pow != 0)
+        {
             result=Math.round(result/10*pow)*10*pow;
             pow--;
         }
@@ -234,7 +238,9 @@ function roundToPowerOfTen(num, pow) {
  *   16 => false
  *   17 => true
  */
-function isPrime(n) {
+
+function isPrime(n) 
+{ 
     if(n <= 1)
     {
         return false;
@@ -272,10 +278,11 @@ function isPrime(n) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(value, def) {
-    return Number(value)||def;
-}   
 
+function toNumber(value, def) 
+{ 
+    return Number(value)||def;
+}
 module.exports = {
     getRectangleArea: getRectangleArea,
     getCicleCircumference: getCicleCircumference,
@@ -289,4 +296,4 @@ module.exports = {
     roundToPowerOfTen: roundToPowerOfTen,
     isPrime: isPrime,
     toNumber: toNumber
-};
+    };
