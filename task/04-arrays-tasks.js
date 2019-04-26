@@ -333,9 +333,10 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
-   return arr.filter(function(value){
+   filteredarr=arr.filter(function(value){
       return (value > 0);
-   }).length;
+   })
+  return filteredarr.length;
 }
  
 /** 
@@ -371,7 +372,7 @@ function sortDigitNamesByNumericOrder(arr) {
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
 function getItemsSum(arr) {
-  return newArr.length > 0 ? newArr.reduce(function(sum,value){
+  return arr.length > 0 ? arr.reduce(function(sum,value){
      return sum+value;
   }) : 0 ;
 }
