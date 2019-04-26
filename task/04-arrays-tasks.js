@@ -334,7 +334,7 @@ function get3TopItems(arr) {
  */
 function getPositivesCount(arr) {
    return arr.filter(function(value){
-      return value > 0;
+      return (value > 0);
    }).length;
 }
  
@@ -425,7 +425,7 @@ function findAllOccurences(arr, item) {
  *    ['rock', 'paper', 'scissors']     => 'rock,paper,scissors'
  */
 function toStringList(arr) {
-   throw new Error('Not implemented');
+   return arr.toString();
 }
 
 
@@ -454,7 +454,9 @@ function toStringList(arr) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  */
 function sortCitiesArray(arr) {
-   throw new Error('Not implemented');
+   return arr.sort(function(a,b){
+      return (b.country < a.country) - (a.country < b.country) || (b.city < a.city) - (a.city < b.city);
+   });
 }
 
 /**
@@ -476,7 +478,13 @@ function sortCitiesArray(arr) {
  *           [0,0,0,0,1]]   
  */
 function getIdentityMatrix(n) {
-   throw new Error('Not implemented');
+   return new Array(n).fill(new Array(n).fill(0)).map(function(value, indexStr)
+    {
+        return value.map(function(valueInner, indexCol)
+        {
+            return indexStr == indexCol ? 1 : 0;
+        })
+    });
 }
 
 /**
@@ -493,7 +501,10 @@ function getIdentityMatrix(n) {
  *     3, 3   => [ 3 ]
  */
 function getIntervalArray(start, end) {
-   throw new Error('Not implemented');
+   return new Array(end-start+1).fill(0).map(function(value,index)
+   {
+       return start + index;
+   });
 }
 
 /**
@@ -508,7 +519,12 @@ function getIntervalArray(start, end) {
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
 function distinct(arr) {
-   throw new Error('Not implemented');
+   var result = [];
+    arr.filter(function(value){
+        result.join('').search(value) == '-1' ? result.push(value) : result.push();
+        return true;
+    });
+    return result;
 }
 
 /**
@@ -558,7 +574,12 @@ function group(array, keySelector, valueSelector) {
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
 function selectMany(arr, childrenSelector) {
-    throw new Error('Not implemented');
+   return arr.reduce(
+      function(result, value){
+              return result.concat(childrenSelector(value));
+      }
+      , new Array()
+  );
 }
 
 
@@ -575,10 +596,14 @@ function selectMany(arr, childrenSelector) {
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
 function getElementByIndexes(arr, indexes) {
-    throw new Error('Not implemented');
+   return indexes.reduce(
+      function(result, value){
+          return result[value];
+      }
+      , arr
+  );
+
 }
-
-
 /**
  * Swaps the head and tail of the specified array:
  * the head (first half) of array move to the end, the tail (last half) move to the start. 
@@ -598,7 +623,16 @@ function getElementByIndexes(arr, indexes) {
  * 
  */
 function swapHeadAndTail(arr) {
-    throw new Error('Not implemented');
+   if(arr.length > 1) {
+      var newarr = [];
+      var len = arr.length;
+      var delimetr = Math.floor(len / 2);
+      var head = arr.splice(0, delimetr);
+      var tail = arr.splice(-delimetr);
+      return len/2 == delimetr ? newarr.concat(tail,head)
+          : newarr.concat(tail, arr[0], head);
+  }
+   return arr;
 }
 
 
