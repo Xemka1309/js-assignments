@@ -74,8 +74,9 @@ function getFactorial(n) {
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
 function getSumBetweenNumbers(n1, n2) {
-    result=0;
-    for (var index = n1; index <= n2; index++) {
+
+    Number(result)=n1;
+    for (var index = n1+1; index <= n2; index++) {
         result=result+index;
     }
     return result;

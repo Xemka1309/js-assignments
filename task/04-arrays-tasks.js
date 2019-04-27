@@ -334,7 +334,7 @@ function get3TopItems(arr) {
  */
 function getPositivesCount(arr) {
    filteredarr=arr.filter(function(value){
-      return (value > 0);
+      return (Nubmer(value) > 0);
    })
   return filteredarr.length;
 }
