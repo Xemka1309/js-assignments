@@ -335,7 +335,7 @@ function get3TopItems(arr) {
 function getPositivesCount(arr) {
    return arr.filter(function(value){
       if (typeof(value)== "number"){
-         return (Nubmer(value) > 0);
+         return (Number(value) > 0);
       }
       else{
          return false;
