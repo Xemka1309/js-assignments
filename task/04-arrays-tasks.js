@@ -333,10 +333,15 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
-   filteredarr=arr.filter(function(value){
-      return (Nubmer(value) > 0);
-   })
-  return filteredarr.length;
+   return arr.filter(function(value){
+      if (typeof(value)== "number"){
+         return (Nubmer(value) > 0);
+      }
+      else{
+         return false;
+      }
+   }).length;
+  
 }
  
 /** 
